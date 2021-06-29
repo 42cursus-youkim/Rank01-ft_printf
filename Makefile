@@ -1,20 +1,32 @@
 # Just to mess up with prod, fix .Makefile on final
 
 TARGET = test.out
+LIBFT = libft
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = # -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
 RAWSRC = main printf
-SRC =	$(addprefix ./ft_,		$(addsuffix	.c,			$(SRCLST)))
+SRC =	$(addprefix ./ft_,	$(addsuffix	.c,	$(RAWSRC)))
 OBJ =	$(SRC:%.c=%.o)
 
-$(TARGET): $(OBJECTS)
+$(TARGET): $(OBJ)
+	make all -C $(LIBFT)/
+	cp $(LIBFT)/$(LIBFT).a $(TARGET)
 	$(CC) $(CFLAGS) -o $@ $^
 # $@ == curr. target. name
 # $^ == curr. dependancy. list
 
+all: $(TARGET)
+
 clean:
-	$(RM) TARGET OBJ
+	make clean -C $(LIBFT)
+	$(RM) $(OBJ)
+
+fclean: clean
+	make fclean -C $(LIBFT)
+	$(RM) $(TARGET)
+
+re: fclean all

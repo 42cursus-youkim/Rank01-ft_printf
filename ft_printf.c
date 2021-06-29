@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youkim <youkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:10:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/17 17:05:58 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 13:30:01 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	parse_format(va_list ap, char *format)
 {
 	int		i;
 	int		result;
-	t_info	*info;
+	// t_info	*info;
 
 	i = 0;
 	result = 0;
-	if (!(info = malloc(sizeof(t_info))))
-		return (-1);
+	// if (!(info = malloc(sizeof(t_info))))
+	// 	return (-1);
 	while (format[i])
 	{
 		while (format[i] && format[i] != '%')
@@ -33,7 +33,7 @@ int	parse_format(va_list ap, char *format)
 			printf("%% found");
 		}
 	}
-	free(info);
+	// free(info);
 	ap += 1;
 
 	return (result);

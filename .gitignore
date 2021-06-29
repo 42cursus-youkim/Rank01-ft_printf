@@ -1,6 +1,9 @@
 .husky/
 .vscode/
 *.swp
+*.o
 *.json
+*.out
+*.a
 
 *main.c

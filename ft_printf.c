@@ -6,14 +6,33 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:10:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 14:32:38 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 14:49:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
 
-int	parse_format(va_list ap, char *format)
+int		print_type(va_list ap, t_info *info)
+{
+	int		result;
+	char	type;
+
+	result = 0;
+	type = info->type;
+	if (type == 'c')
+		result = print_char(va_arg(ap, int), info);
+	else if (type == '%')
+		result = print_char('%', info);
+	return (result);
+}
+
+void	check_info(va_list ap, char *format, t_info *info, int i)
+{
+
+}
+
+int		parse_format(va_list ap, char *format)
 {
 	int		i;
 	int		result;
@@ -29,14 +48,12 @@ int	parse_format(va_list ap, char *format)
 			result += ft_putchar(format[i++]);
 		if (format[i] == '%')
 		{
-			printf("%% found:");
 			init_info(info);
-			while (format[++i])
-			// while (format[++i] && !(ft_strchr(TYPES, format[i])))
-			{
-				printf(" %d", i);
-			}
-			// i++;
+			while (format[++i] && !(ft_strchr(TYPES, format[i])))
+				printf("%d ", i);
+				// check_info(ap, format, info, i);
+			info->type = format[i++];
+			result += print_type(ap, info);
 		}
 	}
 	free(info);

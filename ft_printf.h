@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youkim <youkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:12:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/17 17:12:12 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 13:11:39 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "./libft/libft.h"
+// # include "./libft/libft.h"
 # include <stdbool.h>
 
 /*

@@ -1,51 +1,20 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: youkim <youkim@student.42seoul.kr>         +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/14 14:32:23 by youkim            #+#    #+#              #
-#    Updated: 2021/06/17 15:09:37 by youkim           ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+# Just to mess up with prod, fix .Makefile on final
 
-NAME = libftprintf.a
+TARGET = test.out
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-SRCLST	=	memset bzero memcpy memccpy memmove memchr memcmp\
-			putchar_fd putstr_fd putendl_fd putnbr_fd
-SRCLSB	=	new add_front size last add_back delone clear iter map
+RAWSRC = main printf
+SRC =	$(addprefix ./ft_,		$(addsuffix	.c,			$(SRCLST)))
+OBJ =	$(SRC:%.c=%.o)
 
-SOURCES	=	$(addprefix ./ft_,		$(addsuffix	.c,			$(SRCLST)))
-SOURCEB	=	$(addprefix ./ft_lst,	$(addsuffix	.c,			$(SRCLSB)))
-
-OBJECTS	=	$(SOURCES:%.c=%.o)
-OBJECTB	=	$(SOURCEB:%.c=%.o)
-
-$(NAME): $(OBJECTS)
-	$(AR) $@ $(OBJECTS)
-
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-all: $(NAME)
-
-bonus: $(OBJECTS) $(OBJECTB) $(OBJECTC)
-	$(AR) $(NAME) $(OBJECTS) $(OBJECTB) $(OBJECTC)
+$(TARGET): $(OBJECTS)
+	$(CC) $(CFLAGS) -o $@ $^
+# $@ == curr. target. name
+# $^ == curr. dependancy. list
 
 clean:
-	$(RM) $(OBJECTS) $(OBJECTB) $(OBJECTC)
-
-fclean: clean
-	$(RM) $(NAME)
-
-re: fclean all
-
-solo: all clean
-
-.PHONY: make bonus all clean fclean re solo
+	$(RM) TARGET OBJ

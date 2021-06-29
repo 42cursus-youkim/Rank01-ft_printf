@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youkim <youkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:47:25 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/17 17:00:30 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 15:28:14 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_putstr(char *s)
 {
-	return (write(1, &s, ft_strlen(s)));
+	return (write(1, s, ft_strlen(s)));
 }
 
 void	ft_putstr_fd(char *s, int fd)

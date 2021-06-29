@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:10:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 14:49:34 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 14:50:25 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		parse_format(va_list ap, char *format)
 
 	i = 0;
 	result = 0;
-	if (!(info = malloc(sizeof(t_info))))
+	if (!(info = (t_info *)malloc(sizeof(t_info))))
 		return (-1);
 	while (format[i])
 	{

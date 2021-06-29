@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:12:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 14:48:19 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 15:08:50 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ typedef struct	s_info
 int		ft_printf(const char *format, ...);
 
 /*
-** PRINT CHAR
+** PRINT TYPES
 */
 int		print_char(int c, t_info *info);
-
+int		print_string(char *s, t_info *info);
 /*
 ** UTILS
 */

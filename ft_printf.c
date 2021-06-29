@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:10:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 14:50:25 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 15:10:45 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int		print_type(va_list ap, t_info *info)
 	type = info->type;
 	if (type == 'c')
 		result = print_char(va_arg(ap, int), info);
+	else if (type == 's')
+		result = print_string(va_arg(ap, char *), info);
 	else if (type == '%')
 		result = print_char('%', info);
 	return (result);
@@ -44,25 +46,22 @@ int		parse_format(va_list ap, char *format)
 		return (-1);
 	while (format[i])
 	{
-		while (format[i] && format[i] != '%')
+		if (format[i] != '%')
 			result += ft_putchar(format[i++]);
-		if (format[i] == '%')
+		else
 		{
 			init_info(info);
 			while (format[++i] && !(ft_strchr(TYPES, format[i])))
-				printf("%d ", i);
-				// check_info(ap, format, info, i);
+				check_info(ap, format, info, i);
 			info->type = format[i++];
 			result += print_type(ap, info);
 		}
 	}
 	free(info);
-	ap += 1;
-
 	return (result);
 }
 
-int	ft_printf(const char *format,...)
+int		ft_printf(const char *format, ...)
 {
 	int		result;
 	va_list	ap;

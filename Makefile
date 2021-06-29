@@ -8,9 +8,12 @@ CFLAGS = # -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-RAWSRC = ft_printf utils print_char print_string
-SRC =	$(addsuffix	.c,	$(RAWSRC))
-OBJ =	$(SRC:%.c=%.o)
+RAWPRT = char string
+RAWSRC = ft_printf utils $(PRT)
+
+PRT = $(addprefix print_, $(RAWPRT))
+SRC = $(addsuffix .c, $(RAWSRC))
+OBJ = $(SRC:%.c=%.o)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<

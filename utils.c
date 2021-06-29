@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 16:36:07 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 15:49:35 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 15:59:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,20 @@
 void	init_info(t_info *info)
 {
 	info->type = 0;
+}
+
+int		ft_numlen(unsigned long long n, t_info *info)
+{
+	size_t i;
+	// TODO: chek prec
+	i = 0;
+	while (n)
+	{
+		i++;
+		n /= 10; // FIXME: it should implement info->num_base
+	}
+
+	return (i);
 }
 
 void	check_info(va_list ap, char *format, t_info *info, int i)

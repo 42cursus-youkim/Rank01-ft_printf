@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:12:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 15:50:37 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 15:59:03 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int				print_number(unsigned long long n, t_info *info);
 ** UTILS
 */
 void			init_info(t_info *info);
+int				ft_numlen(unsigned long long n, t_info *info);
 int				print_type(va_list ap, t_info *info);
 void			check_info(va_list ap, char *format, t_info *info, int i);
 

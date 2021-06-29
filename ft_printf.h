@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:12:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 16:15:13 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 16:44:36 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdbool.h>
 
 # define TYPES "csdiupxX%"
+# define UNDEFINED -1
 
 /*
 ** INFO STRUCT
@@ -31,10 +32,10 @@
 typedef	struct	s_info
 {
 	char		type;
+	int			width;
+	int			prec;
 	int			num_base;
-	// int			width;
-	// int			prec;
-	// int			zeropad;
+	bool		zeropad;
 	// int			is_zero;
 	// int			dosign;
 	// int			nbr_sign;

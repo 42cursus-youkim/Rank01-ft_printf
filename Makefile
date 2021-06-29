@@ -37,7 +37,7 @@ fclean: clean
 
 re: fclean all
 
-test: all
+test: re
 	$(CC) $(CFLAGS) -c -o main.o main.c
 	$(CC) -o test.out -L. $(NAME) main.o
 	./test.out

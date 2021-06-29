@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 16:36:07 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 16:14:43 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 16:44:36 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,22 @@
 void	init_info(t_info *info)
 {
 	info->type = 0;
+	info->width = 0;
+	info->prec = UNDEFINED;
+	info->zeropad = false;
 	info->num_base = 10;
 }
 
 void	check_info(va_list ap, char *format, t_info *info, int i)
 {
-
+	if (format[i] == '0' && info->width == 0 && info->prec == UNDEFINED)
+		info->zeropad = true;
+	else if (format[i] == '.')
+		info->prec = 0;
+	else if (ft_isdigit(format[i]))
+		info->width = i; //FIXME: can only do one digit
+		//FIXME: can't do *
+	//TODO: -.*
 }
 
 int		print_type(va_list ap, t_info *info)

@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 16:26:38 by youkim           ###   ########.fr       */
+/*   Updated: 2021/06/29 16:43:06 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int putdigit(unsigned long long n, t_info *info)
 	else
 		base = "0123456789";
 	ft_putchar(base[n % info->num_base]);
+	//FIXME: messed up
 }
 
 int	print_number(unsigned long long n, t_info *info)

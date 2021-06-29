@@ -8,7 +8,7 @@ CFLAGS = # -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-RAWPRT = char string
+RAWPRT = char string number
 RAWSRC = ft_printf utils $(PRT)
 
 PRT = $(addprefix print_, $(RAWPRT))

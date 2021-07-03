@@ -6,15 +6,14 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:10:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 15:49:13 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 11:40:11 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "ft_printf.h"
 
-
-int		parse_format(va_list ap, char *format)
+int	parse_format(va_list ap, char *format)
 {
 	int		i;
 	int		result;
@@ -22,7 +21,8 @@ int		parse_format(va_list ap, char *format)
 
 	i = 0;
 	result = 0;
-	if (!(info = (t_info *)malloc(sizeof(t_info))))
+	info = malloc(sizeof(t_info));
+	if (!info)
 		return (-1);
 	while (format[i])
 	{
@@ -41,7 +41,7 @@ int		parse_format(va_list ap, char *format)
 	return (result);
 }
 
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	int		result;
 	va_list	ap;

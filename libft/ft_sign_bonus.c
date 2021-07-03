@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sign_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youkim <youkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 10:52:27 by youkim            #+#    #+#             */
-/*   Updated: 2021/05/13 17:50:05 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 11:48:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_sign_bonus(long n)
+int	ft_sign_bonus(long n)
 {
 	if (n < 0)
 		return (-1);

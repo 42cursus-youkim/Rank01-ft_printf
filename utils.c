@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 16:36:07 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 16:44:36 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 11:51:53 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	check_info(va_list ap, char *format, t_info *info, int i)
 		info->prec = 0;
 	else if (ft_isdigit(format[i]))
 		info->width = i; //FIXME: can only do one digit
-		//FIXME: can't do *
+	//FIXME: can't do *
 	//TODO: -.*
 }
 

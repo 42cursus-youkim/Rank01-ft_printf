@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:12:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 16:44:36 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 11:42:02 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,35 +29,37 @@
 /*
 ** STRUCT INFO
 */
-typedef	struct	s_info
+typedef struct s_info
 {
-	char		type;
-	int			width;
-	int			prec;
-	int			num_base;
-	bool		zeropad;
-	// int			is_zero;
-	// int			dosign;
-	// int			nbr_sign;
-}				t_info;
+	char	type;
+	int		width;
+	int		prec;
+	int		num_base;
+	bool	zeropad;
+}			t_info;
+/*
+** 	int			is_zero;
+** 	int			dosign;
+** 	int			nbr_sign;
+*/
 
 /*
 ** PRINTF
 */
-int				ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
 
 /*
 ** PRINT TYPES
 */
-int				print_char(int c, t_info *info);
-int				print_string(char *s, t_info *info);
-int				print_number(unsigned long long n, t_info *info);
+int		print_char(int c, t_info *info);
+int		print_string(char *s, t_info *info);
+int		print_number(unsigned long long n, t_info *info);
 
 /*
 ** UTILS
 */
-void			init_info(t_info *info);
-int				print_type(va_list ap, t_info *info);
-void			check_info(va_list ap, char *format, t_info *info, int i);
+void	init_info(t_info *info);
+int		print_type(va_list ap, t_info *info);
+void	check_info(va_list ap, char *format, t_info *info, int i);
 
 #endif

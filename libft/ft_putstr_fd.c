@@ -6,13 +6,13 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 12:47:25 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 15:28:14 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 11:49:13 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_putstr(char *s)
+int	ft_putstr(char *s)
 {
 	return (write(1, s, ft_strlen(s)));
 }

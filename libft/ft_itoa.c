@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youkim <youkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 10:42:30 by youkim            #+#    #+#             */
-/*   Updated: 2021/05/10 11:39:10 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 11:49:59 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		st_sign(long n)
+static int	st_sign(long n)
 {
 	if (n < 0)
 		return (-1);
 	return (1);
 }
 
-static int		st_abs(long n)
+static int	st_abs(long n)
 {
 	if (n >= 0)
 		return (n);
@@ -42,7 +42,7 @@ static size_t	st_digitlen(long n)
 	return (len);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
 	int		len;
 	int		sign;

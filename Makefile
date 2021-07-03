@@ -22,8 +22,8 @@ $(NAME): $(OBJ)
 	make all -C $(LIBFT)/
 	cp $(LIBFT)/$(LIBFT).a $(NAME)
 	$(AR) $@ $^
-# $@ == curr. target. name
-# $^ == curr. dependancy. list
+# $@ -> curr. target. name
+# $^ -> curr. dependancy. list
 
 all: $(NAME)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youkim <youkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 19:47:16 by youkim            #+#    #+#             */
-/*   Updated: 2021/05/10 21:30:42 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 11:47:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	st_strsnum(char const *s, char c)
 
 static int	st_lenstr(size_t i, char const *s, char c)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (s[i] && s[i] != c)
@@ -48,7 +48,7 @@ static int	st_lenstr(size_t i, char const *s, char c)
 
 static char	**st_purge2str(char **str2d)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str2d[i])
@@ -86,7 +86,7 @@ static char	**st_alloc2str(char **str2d, size_t numstrs, char const *s, char c)
 	return (str2d);
 }
 
-char		**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**str2d;
 	size_t	numstrs;

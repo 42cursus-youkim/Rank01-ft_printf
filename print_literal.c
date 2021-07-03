@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 15:20:14 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 17:19:24 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	print_char(int c, t_info *info)
 	if (info->type == '%' && info->lalign)
 		info->zeropad = false;
 	if (info->lalign)
-		result += ft_putchar(c) + pad(1, info);
+		result += ft_putchar(c) + pad(1, info->width, info);
 	else
-		result += pad(1, info) + ft_putchar(c);
+		result += pad(1, info->width, info) + ft_putchar(c);
 	return (result);
 }
 
@@ -35,8 +35,8 @@ int	print_string(char *s, t_info *info)
 	if (info->prec == NOPREC || info->prec > ft_strlen(s))
 		info->prec = ft_strlen(s);
 	if (info->lalign)
-		result += write(1, s, info->prec) + pad(info->prec, info);
+		result += write(1, s, info->prec) + pad(info->prec, info->width, info);
 	else
-		result += pad(info->prec, info) + write(1, s, info->prec);
+		result += pad(info->prec, info->width, info) + write(1, s, info->prec);
 	return (result);
 }

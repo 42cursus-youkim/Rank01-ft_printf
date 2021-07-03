@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:12:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 16:49:38 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 17:18:21 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		print_char(int c, t_info *info);
 int		print_string(char *s, t_info *info);
 int		print_number(long long n, t_info *info);
 
-int		pad(int len, t_info *info);
+int		pad(int len, int max, t_info *info);
 /*
 ** UTILS
 */

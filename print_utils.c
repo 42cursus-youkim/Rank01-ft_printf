@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_char.c                                       :+:      :+:    :+:   */
+/*   print_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/29 14:44:38 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 14:20:34 by youkim           ###   ########.fr       */
+/*   Created: 2021/07/03 13:47:07 by youkim            #+#    #+#             */
+/*   Updated: 2021/07/03 13:52:56 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int	pad(t_info *info)
+static int	pad(t_info *info, int len)
 {
 	int	result;
 
 	result = 0;
-	while (info->width--)
+	while (len--)
 	{
 		if (info->zeropad)
 			ft_putchar('0');
@@ -28,16 +28,16 @@ static	int	pad(t_info *info)
 	return (result);
 }
 
-int	print_char(int c, t_info *info)
+int	print_width(t_info *info, char *s)
 {
-	int		result;
+	int	result;
+	int	len;
 
 	result = 0;
-	if (info->type == '%' && info->lalign)
-		info->zeropad = false;
+	len = ft_strlen(s);
 	if (info->lalign)
-		result += ft_putchar(c) + pad(info);
+		result += ft_putstr(s) + pad(info, len);
 	else
-		result += pad(info) + ft_putchar(c);
+		result += pad(info, len) + ft_putstr(s);
 	return (result);
 }

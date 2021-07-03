@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:12:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 12:20:02 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 13:53:44 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ int		ft_printf(const char *format, ...);
 int		print_char(int c, t_info *info);
 int		print_string(char *s, t_info *info);
 int		print_number(unsigned long long n, t_info *info);
+
+/*
+** PRINT UTILS
+*/
+int		print_width(t_info *info, char *s);
 
 /*
 ** UTILS

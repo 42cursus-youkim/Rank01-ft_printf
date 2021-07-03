@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/05 22:12:11 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 11:44:34 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 15:32:00 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ int		ft_sign_bonus(long n);
 long	ft_abs_bonus(long n);
 int		ft_putchar(char c);
 int		ft_putstr(char *s);
+char	*ft_itoa_base(int n, int base);
 
 #endif

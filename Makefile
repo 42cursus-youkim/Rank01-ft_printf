@@ -37,9 +37,11 @@ fclean: clean
 
 re: fclean all
 
-test: re
+test: all
 	$(CC) $(CFLAGS) -c -o main.o main.c
 	$(CC) -o test.out -L. $(NAME) main.o
 	./test.out
+
+retest: re test
 
 .PHONY: all clean fclean re test bonus

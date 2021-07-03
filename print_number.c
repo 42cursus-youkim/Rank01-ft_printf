@@ -6,13 +6,13 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/29 16:43:06 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 12:33:26 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		numlen(unsigned long long n, t_info *info)
+static int		numlen(unsigned long long n, t_info *info)
 {
 	size_t i;
 	// TODO: chek prec

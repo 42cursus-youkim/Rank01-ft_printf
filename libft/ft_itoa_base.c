@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 10:42:30 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 15:39:52 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 16:46:40 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,24 @@ static size_t	st_digitlen(long long n, int base)
 	return (len);
 }
 
-char	*ft_itoa_base(long long n, int base)
+char	*ft_itoa_base(long long n, char *baseset)
 {
 	int		len;
 	int		sign;
 	char	*str;
+	int		baselen;
 
 	sign = st_sign(n);
-	len = st_digitlen(n, base);
+	baselen = ft_strlen(baseset);
+	len = st_digitlen(n, baselen);
 	str = malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	str[len] = 0;
 	while (--len >= 0)
 	{
-		str[len] = st_abs(n % base) + '0';
-		n = st_abs(n / base);
+		str[len] = baseset[st_abs(n % baselen)];
+		n = st_abs(n / baselen);
 	}
 	if (sign == -1)
 		str[0] = '-';

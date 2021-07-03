@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: youkim <youkim@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/09 19:15:36 by youkim            #+#    #+#             */
-/*   Updated: 2021/06/17 15:06:39 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 12:39:51 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!str)
 		return (0);
 	ft_strlcpy(str, s1, lens1 + 1);
-	free((char *)s1);
 	ft_strlcat(str, s2, lens1 + lens2 + 1);
 	return (str);
 }
+/*
+** 	free((char *)s1);
+*/

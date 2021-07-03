@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 16:47:26 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 16:56:22 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ int	print_number(long long n, t_info *info)
 	char	*numstr;
 	char	*baseset;
 
-	if (ft_strchr("pxX", info->type))
-		info->num_base = 16;
+	if (n < 0 && ft_strchr("di", info->type))
+		info->num_minus = true;
 	baseset = get_baseset(info->type);
-	numstr = ft_itoa_base(n, baseset);	
+	numstr = ft_itoa_base(n, baseset);
+	if (info->num_minus)
+		result += ft_putchar('-');
 	result += print_string(numstr, info);
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 16:36:07 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 12:28:41 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 16:50:28 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_info(t_info *info)
 	info->prec = NOPREC;
 	info->zeropad = false;
 	info->lalign = false;
-	info->num_base = 10;
+	info->num_minus = false;
 }
 
 void	check_star(va_list ap, char *format, t_info *info, int i)

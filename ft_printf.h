@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 15:12:45 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 15:36:29 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 16:49:38 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ typedef struct s_info
 	char	type;
 	int		width;
 	int		prec;
-	int		num_base;
 	bool	lalign;
 	bool	zeropad;
+	bool	num_minus;
 }			t_info;
 /*
 ** 	int			is_zero;

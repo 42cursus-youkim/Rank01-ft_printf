@@ -1,6 +1,6 @@
 # Just to mess up with prod, fix .Makefile on final
 
-NAME = libftprint.a
+NAME = libftprintf.a
 LIBFT = libft
 
 CC = gcc

@@ -1,9 +1,14 @@
+# Configurations
 .husky/
 .vscode/
+
+# Temporary files
 *.swp
 *.o
 *.json
 *.out
 *.a
 
+# Testers
 *main.c
+pft

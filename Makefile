@@ -1,6 +1,6 @@
 # Just to mess up with prod, fix .Makefile on final
 
-NAME = libftprint.a
+NAME = libftprintf.a
 LIBFT = libft
 
 CC = gcc
@@ -8,7 +8,7 @@ CFLAGS = # -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-RAWPRT = char string number
+RAWPRT = char string number utils
 RAWSRC = ft_printf utils $(PRT)
 
 PRT = $(addprefix print_, $(RAWPRT))

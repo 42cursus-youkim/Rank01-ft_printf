@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 14:44:38 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 14:21:50 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 14:28:47 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static	int	pad(t_info *info)
 	int	result;
 
 	result = 0;
-	while (info->width--)
+	while (--info->width > 0)
 	{
 		if (info->zeropad)
 			ft_putchar('0');

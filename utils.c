@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 16:36:07 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 11:51:53 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 12:28:41 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,47 @@ void	init_info(t_info *info)
 {
 	info->type = 0;
 	info->width = 0;
-	info->prec = UNDEFINED;
+	info->prec = NOPREC;
 	info->zeropad = false;
+	info->lalign = false;
 	info->num_base = 10;
+}
+
+void	check_star(va_list ap, char *format, t_info *info, int i)
+{
+	if (info->prec == NOPREC)
+	{
+		info->width = va_arg(ap, int);
+		if (info->width < 0)
+		{
+			info->lalign = true;
+			info->width *= -1;
+		}
+	}
+	else
+		info->prec = va_arg(ap, int);
 }
 
 void	check_info(va_list ap, char *format, t_info *info, int i)
 {
-	if (format[i] == '0' && info->width == 0 && info->prec == UNDEFINED)
+	if (format[i] == '0' && info->width == 0 && info->prec == NOPREC)
 		info->zeropad = true;
+	else if (format[i] == '-')
+		info->lalign = true;
 	else if (format[i] == '.')
-		info->prec = 0;
+		info->prec = INITPREC;
+	else if (format[i] == '*')
+		check_star(ap, format, info, i);
 	else if (ft_isdigit(format[i]))
-		info->width = i; //FIXME: can only do one digit
-	//FIXME: can't do *
-	//TODO: -.*
+	{
+		if (info->prec == NOPREC)
+			info->width = info->width * 10 + (format[i] - '0');
+		else
+			info->prec = info->prec * 10 + (format[i] - '0');
+	}
 }
 
-int		print_type(va_list ap, t_info *info)
+int	print_type(va_list ap, t_info *info)
 {
 	int		result;
 	char	type;

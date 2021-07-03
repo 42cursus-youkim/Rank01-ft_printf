@@ -6,20 +6,20 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 10:42:30 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 15:30:48 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/03 15:39:52 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	st_sign(long n)
+static int	st_sign(long long n)
 {
 	if (n < 0)
 		return (-1);
 	return (1);
 }
 
-static int	st_abs(long n)
+static int	st_abs(long long n)
 {
 	if (n >= 0)
 		return (n);
@@ -27,7 +27,7 @@ static int	st_abs(long n)
 		return (-n);
 }
 
-static size_t	st_digitlen(long n, int base)
+static size_t	st_digitlen(long long n, int base)
 {
 	size_t	len;
 
@@ -42,7 +42,7 @@ static size_t	st_digitlen(long n, int base)
 	return (len);
 }
 
-char	*ft_itoa_base(int n, int base)
+char	*ft_itoa_base(long long n, int base)
 {
 	int		len;
 	int		sign;

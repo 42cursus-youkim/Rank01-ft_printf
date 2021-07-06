@@ -6,19 +6,27 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/06 16:58:36 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/06 17:23:50 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 static int	pad_width(int len, t_info *info)
 {
 	int	result;
 
 	result = 0;
+	if(info->num_minus)
+		len++;
+	if (info->num_minus && info->prec == NOPREC)
+		result += (ft_putchar('-'));
 	while (len++ < info->width)
-		result += ft_putchar(' ');
+		if (info->zeropad)
+			result += ft_putchar('0');
+		else
+			result += ft_putchar(' ');
 	return (result);
 }
 
@@ -29,6 +37,8 @@ static int	pad_prec(char *numstr, t_info *info)
 
 	result = 0;
 	start = ft_strlen(numstr);
+	if (info->num_minus && info->prec != NOPREC)
+		result += (ft_putchar('-'));
 	while (start++ < info->prec)
 		result += ft_putchar('0');
 	result += ft_putstr(numstr);
@@ -45,19 +55,19 @@ static	char	*get_baseset(char type)
 		return ("0123456789ABCDEF");
 	return (NULL);
 }
-#include <stdio.h>
+
 int	print_number(long long n, t_info *info)
 {
 	int		result;
 	char	*numstr;
 	char	*baseset;
+	bool	 minus;
 
-	info->zeropad = true;
 	result = 0;
 	baseset = get_baseset(info->type);
 	numstr = ft_itoa_base(n, baseset);
 	if (n < 0 && ft_strchr("di", info->type))
-		result += (ft_putchar('-'));
+		info->num_minus = true;
 	if (info->lalign)
 		result += pad_prec(numstr, info) \
 		+ pad_width((result + ft_strlen(numstr)), info);

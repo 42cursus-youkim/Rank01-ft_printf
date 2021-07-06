@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/06 17:32:54 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/06 17:49:46 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	pad_width(int len, t_info *info)
 	result = 0;
 	if(info->num_minus)
 		len++;
-	if (info->num_minus && !info->lalign && info->prec == NOPREC)
+	if (info->num_minus && info->zeropad && info->prec == NOPREC)
 		result += (ft_putchar('-'));
 	while (len++ < info->width)
 		if (info->zeropad && !info->lalign)
@@ -37,7 +37,7 @@ static int	pad_prec(char *numstr, t_info *info)
 
 	result = 0;
 	start = ft_strlen(numstr);
-	if (info->num_minus && (info->lalign || info->prec != NOPREC))
+	if (info->num_minus && !info->zeropad)
 		result += (ft_putchar('-'));
 	while (start++ < info->prec)
 		result += ft_putchar('0');

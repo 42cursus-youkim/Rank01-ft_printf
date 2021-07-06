@@ -6,7 +6,7 @@
 #    By: youkim <youkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 16:31:20 by youkim            #+#    #+#              #
-#    Updated: 2021/07/06 16:31:26 by youkim           ###   ########.fr        #
+#    Updated: 2021/07/06 16:33:47 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = # -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-RAWPRT = literal number utils
+RAWPRT = literal number #utils
 RAWSRC = ft_printf utils $(PRT)
 
 PRT = $(addprefix print_, $(RAWPRT))

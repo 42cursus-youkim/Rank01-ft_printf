@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/06 17:49:46 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/06 17:59:00 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ int	print_number(long long n, t_info *info)
 		info->num_minus = true;
 	if (info->lalign)
 		result += pad_prec(numstr, info) \
-		+ pad_width((result + ft_strlen(numstr)), info);
+		+ pad_width(ft_strlen(numstr), info);
 	else
-		result += pad_width((result + ft_strlen(numstr)), info) \
+		result += pad_width(ft_strlen(numstr), info) \
 		+ pad_prec(numstr, info);
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 16:36:07 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 16:50:28 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/08 10:19:02 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,15 @@ int	print_type(va_list ap, t_info *info)
 	else if (type == '%')
 		result = print_char('%', info);
 	return (result);
+}
+
+char	*get_baseset(char type)
+{
+	if (ft_strchr("udi", type))
+		return ("0123456789");
+	else if (ft_strchr("xp", type))
+		return ("0123456789abcdef");
+	else if (ft_strchr("X", type))
+		return ("0123456789ABCDEF");
+	return (NULL);
 }

@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/06 17:59:00 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/08 10:19:58 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,34 +45,24 @@ static int	pad_prec(char *numstr, t_info *info)
 	return (result);
 }
 
-static	char	*get_baseset(char type)
-{
-	if (ft_strchr("udi", type))
-		return ("0123456789");
-	else if (ft_strchr("xp", type))
-		return ("0123456789abcdef");
-	else if (ft_strchr("X", type))
-		return ("0123456789ABCDEF");
-	return (NULL);
-}
-
 int	print_number(long long n, t_info *info)
 {
 	int		result;
 	char	*numstr;
-	char	*baseset;
 
 	result = 0;
-	baseset = get_baseset(info->type);
-	numstr = ft_itoa_base(n, baseset);
+	numstr = ft_itoa_base(n, get_baseset(info->type));
+	if (info->prec < ft_strlen(numstr))
+		info->prec = ft_strlen(numstr);
 	if (n < 0 && ft_strchr("di", info->type))
 		info->num_minus = true;
-	if (info->lalign)
-		result += pad_prec(numstr, info) \
-		+ pad_width(ft_strlen(numstr), info);
-	else
-		result += pad_width(ft_strlen(numstr), info) \
-		+ pad_prec(numstr, info);
+	pad_prec(numstr, info);
+	// if (info->lalign)
+	// 	result += pad_prec(numstr, info) \
+	// 	+ pad_width(ft_strlen(numstr), info);
+	// else
+	// 	result += pad_width(ft_strlen(numstr), info) \
+	// 	+ pad_prec(numstr, info);
 	return (result);
 }
 /*

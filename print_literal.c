@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/06 16:45:12 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/08 15:07:55 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	print_string(char *s, t_info *info)
 {
 	int	result;
 
+	result = 0;
 	if (!s)
 		s = "(null)";
 	if (info->prec == NOPREC || info->prec > ft_strlen(s))

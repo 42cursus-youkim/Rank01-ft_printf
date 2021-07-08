@@ -6,63 +6,58 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/08 10:19:58 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/08 12:17:01 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static int	pad_width(int len, t_info *info)
+static	char	*ft_strjoin_dir(const char *s1, const char *s2, bool no_rev)
 {
-	int	result;
-
-	result = 0;
-	if(info->num_minus)
-		len++;
-	if (info->num_minus && info->zeropad && info->prec == NOPREC)
-		result += (ft_putchar('-'));
-	while (len++ < info->width)
-		if (info->zeropad && !info->lalign)
-			result += ft_putchar('0');
-		else
-			result += ft_putchar(' ');
-	return (result);
+	if (!no_rev)
+		return (ft_strjoin(s1, s2));
+	return (ft_strjoin(s2, s1));
 }
 
-static int	pad_prec(char *numstr, t_info *info)
+static	char	*pad_width(char *s, t_info *info)
 {
-	int result;
-	int start;
+	while (info->num_minus + info->prec++ < info->width)
+	{
+		if (info->zeropad)
+			s = ft_strjoin_dir("0", s, info->lalign);
+		else
+			s = ft_strjoin_dir(" ", s, info->lalign);
+	}
+	if (info->num_minus && info->zeropad)
+		s = ft_strjoin("-", s);
+	return (s);
+}
 
-	result = 0;
-	start = ft_strlen(numstr);
-	if (info->num_minus && !info->zeropad)
-		result += (ft_putchar('-'));
+static	char	*pad_prec(char *s, t_info *info)
+{
+	int		start;
+
+	start = ft_strlen(s);
+	info->prec = ft_max(info->prec, ft_strlen(s));
 	while (start++ < info->prec)
-		result += ft_putchar('0');
-	result += ft_putstr(numstr);
-	return (result);
+		s = ft_strjoin("0", s);
+	if (info->num_minus && !info->zeropad)
+		s = ft_strjoin("-", s);
+	return (s);
 }
 
 int	print_number(long long n, t_info *info)
 {
 	int		result;
-	char	*numstr;
+	char	*s;
 
 	result = 0;
-	numstr = ft_itoa_base(n, get_baseset(info->type));
-	if (info->prec < ft_strlen(numstr))
-		info->prec = ft_strlen(numstr);
 	if (n < 0 && ft_strchr("di", info->type))
 		info->num_minus = true;
-	pad_prec(numstr, info);
-	// if (info->lalign)
-	// 	result += pad_prec(numstr, info) \
-	// 	+ pad_width(ft_strlen(numstr), info);
-	// else
-	// 	result += pad_width(ft_strlen(numstr), info) \
-	// 	+ pad_prec(numstr, info);
+	s = ft_itoa_base(n, get_baseset(info->type));
+	s = pad_width(pad_prec(s, info), info);
+	result += ft_putstr(s);
 	return (result);
 }
 /*

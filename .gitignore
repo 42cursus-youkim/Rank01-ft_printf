@@ -8,7 +8,13 @@
 *.json
 *.out
 *.a
+*.gch
 
 # Testers
 *main.c
 pft
+PFT_2019
+printf-tester
+printf_lover_v2
+printf-unit-test
+42TESTERS-PRINTF

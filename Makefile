@@ -6,7 +6,7 @@
 #    By: youkim <youkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 16:31:20 by youkim            #+#    #+#              #
-#    Updated: 2021/07/09 15:22:41 by youkim           ###   ########.fr        #
+#    Updated: 2021/07/09 17:15:47 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,11 @@ NAME = libftprintf.a
 LIBFT = libft
 
 CC = gcc
-CFLAGS = # -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
 
-RAWPRT = literal number #utils
+RAWPRT = literal number
 RAWSRC = ft_printf utils $(PRT)
 
 PRT = $(addprefix print_, $(RAWPRT))

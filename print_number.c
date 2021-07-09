@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 15:29:52 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:31:40 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,7 @@ int	print_number(long long n, t_info *info)
 	else
 		s = ft_itoa_base(n, get_baseset(info->type));
 	result += pad(s, info);
+	if (s)
+		free(s);
 	return (result);
 }

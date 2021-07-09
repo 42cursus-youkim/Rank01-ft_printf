@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 10:24:25 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:00:31 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,13 @@ static	char	*ft_strjoin_dir(const char *s1, const char *s2, bool no_rev)
 	return (ft_strjoin(s2, s1));
 }
 
-static	char	*pad(char *s, t_info *info)
+static	int	pad(char *s, t_info *info)
 {
 	int		start;
+	int		result;
 	bool	is_noprec;
 
+	result = 0;
 	start = ft_strlen(s);
 	is_noprec = (info->prec == NOPREC);
 	info->prec = ft_max(info->prec, ft_strlen(s));
@@ -41,7 +43,8 @@ static	char	*pad(char *s, t_info *info)
 	}
 	if (info->num_minus && (info->zeropad && is_noprec))
 		s = ft_strjoin("-", s);
-	return (s);
+	result += ft_putstr(s);
+	return (result);
 }
 
 int	print_number(long long n, t_info *info)
@@ -58,6 +61,6 @@ int	print_number(long long n, t_info *info)
 		s = ft_itoa_base(n, get_baseset(info->type));
 	if (info->type == 'p')
 		s = ft_strjoin("0x", s);
-	result += ft_putstr(pad(s, info));
+	result += pad(s, info);
 	return (result);
 }

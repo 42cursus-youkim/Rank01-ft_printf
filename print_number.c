@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 15:00:31 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:03:01 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static	int	pad(char *s, t_info *info)
 			s = ft_strjoin_dir(" ", s, info->lalign);
 	}
 	if (info->num_minus && (info->zeropad && is_noprec))
-		s = ft_strjoin("-", s);
+		result += ft_putchar('-');
 	result += ft_putstr(s);
 	return (result);
 }

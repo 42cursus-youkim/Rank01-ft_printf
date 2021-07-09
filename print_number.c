@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 15:11:15 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:13:34 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ static	int	pad(char *s, t_info *info)
 	info->prec = ft_max(info->prec, ft_strlen(s));
 	while (start++ < info->prec)
 		s = ft_strjoin("0", s);
-	if (info->num_minus && !(info->zeropad && is_noprec))
-		s = ft_strjoin("-", s);
 	if (info->num_minus && (info->zeropad && is_noprec))
 		result += ft_putchar('-');
 	if (!info->lalign)
 		result += pad_width(info, is_noprec);
+	if (info->num_minus && !(info->zeropad && is_noprec))
+		result += ft_putchar('-');
 	result += ft_putstr(s);
 	if (info->lalign)
 		result += pad_width(info, is_noprec);

@@ -6,24 +6,13 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 09:54:57 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 10:24:25 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-// (info->zeropad)
-// First line of code: {return test("%08.5i", 34);}
-// 	expected output : "   00034"
-// 	your output     : "00000034"
-
-// (info->zeropad && (!info->prec && info->width))
-// First line of code: {return test("%05i", 43);}
-// expected output : "00043"
-// your output     : "   43"
-
-// printf("[%010.5i]\n", -216); -> [    -00216]
 static	char	*ft_strjoin_dir(const char *s1, const char *s2, bool no_rev)
 {
 	if (!no_rev)
@@ -67,7 +56,8 @@ int	print_number(long long n, t_info *info)
 		s = ft_strdup("");
 	else
 		s = ft_itoa_base(n, get_baseset(info->type));
-	s = pad(s, info);
-	result += ft_putstr(s);
+	if (info->type == 'p')
+		s = ft_strjoin("0x", s);
+	result += ft_putstr(pad(s, info));
 	return (result);
 }

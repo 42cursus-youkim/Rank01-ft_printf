@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 15:31:40 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:49:44 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 static	int	pad_width(t_info *info, bool is_noprec)
 {
-	int i;
-	int result;
+	int	i;
+	int	result;
 
 	i = info->prec;
 	result = 0;
@@ -58,16 +58,19 @@ int	print_number(long long n, t_info *info)
 {
 	int		result;
 	char	*s;
+	char	*nums;
 
 	result = 0;
 	if (n < 0 && ft_strchr("di", info->type))
 		info->num_minus = true;
 	if (n == 0 && !info->prec)
-		s = ft_strdup("");
-	else if (info->type == 'p')
-		s = ft_strjoin("0x", ft_itoa_base(n, get_baseset(info->type)));
+		nums = ft_strdup("");
 	else
-		s = ft_itoa_base(n, get_baseset(info->type));
+		nums = ft_itoa_base(n, get_baseset(info->type));
+	if (info->type == 'p')
+		s = ft_strjoin("0x", nums);
+	else
+		s = nums;
 	result += pad(s, info);
 	if (s)
 		free(s);

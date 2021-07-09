@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 16:36:07 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 16:13:19 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 16:42:54 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_info(t_info *info)
 	info->num_minus = false;
 }
 
-void	check_star(va_list ap, char *format, t_info *info, int i)
+static	void	check_star(va_list ap, t_info *info)
 {
 	if (info->prec == NOPREC)
 	{
@@ -47,7 +47,7 @@ void	check_info(va_list ap, char *format, t_info *info, int i)
 	else if (format[i] == '.')
 		info->prec = INITPREC;
 	else if (format[i] == '*')
-		check_star(ap, format, info, i);
+		check_star(ap, info);
 	else if (ft_isdigit(format[i]))
 	{
 		if (info->prec == NOPREC)

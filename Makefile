@@ -6,7 +6,7 @@
 #    By: youkim <youkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 16:31:20 by youkim            #+#    #+#              #
-#    Updated: 2021/07/06 16:33:47 by youkim           ###   ########.fr        #
+#    Updated: 2021/07/09 15:22:41 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,6 +51,9 @@ test: all
 	$(CC) $(CFLAGS) -c -o main.o main.c
 	$(CC) -o test.out -L. $(NAME) main.o
 	./test.out
+
+leak: test
+	valgrind --leak-check=full ./test.out
 
 retest: re test
 

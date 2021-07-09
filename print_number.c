@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 15:13:34 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:19:16 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,12 @@
 
 static	int	pad_width(t_info *info, bool is_noprec)
 {
-	int	result;
+	int i;
+	int result;
 
+	i = info->prec;
 	result = 0;
-	while (info->num_minus + info->prec++ < info->width)
+	while (info->num_minus + i++ < info->width)
 	{
 		if (info->zeropad && is_noprec)
 			result += ft_putchar('0');
@@ -38,14 +40,14 @@ static	int	pad(char *s, t_info *info)
 	start = ft_strlen(s);
 	is_noprec = (info->prec == NOPREC);
 	info->prec = ft_max(info->prec, ft_strlen(s));
-	while (start++ < info->prec)
-		s = ft_strjoin("0", s);
 	if (info->num_minus && (info->zeropad && is_noprec))
 		result += ft_putchar('-');
 	if (!info->lalign)
 		result += pad_width(info, is_noprec);
 	if (info->num_minus && !(info->zeropad && is_noprec))
 		result += ft_putchar('-');
+	while (start++ < info->prec)
+		result += ft_putchar('0');
 	result += ft_putstr(s);
 	if (info->lalign)
 		result += pad_width(info, is_noprec);

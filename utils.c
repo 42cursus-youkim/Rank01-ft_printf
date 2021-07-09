@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/17 16:36:07 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 10:31:16 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 16:13:19 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ void	check_star(va_list ap, char *format, t_info *info, int i)
 
 void	check_info(va_list ap, char *format, t_info *info, int i)
 {
-	if (format[i] == '0' && info->width == 0 && info->prec == NOPREC)
+	if (format[i] == '0' && info->width == 0 \
+		&& info->prec == NOPREC && !info->lalign)
 		info->zeropad = true;
 	else if (format[i] == '-')
 		info->lalign = true;

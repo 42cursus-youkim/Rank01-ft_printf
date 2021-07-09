@@ -6,18 +6,26 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 15:03:01 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:11:15 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static	char	*ft_strjoin_dir(const char *s1, const char *s2, bool no_rev)
+static	int	pad_width(t_info *info, bool is_noprec)
 {
-	if (!no_rev)
-		return (ft_strjoin(s1, s2));
-	return (ft_strjoin(s2, s1));
+	int	result;
+
+	result = 0;
+	while (info->num_minus + info->prec++ < info->width)
+	{
+		if (info->zeropad && is_noprec)
+			result += ft_putchar('0');
+		else
+			result += ft_putchar(' ');
+	}
+	return (result);
 }
 
 static	int	pad(char *s, t_info *info)
@@ -34,16 +42,13 @@ static	int	pad(char *s, t_info *info)
 		s = ft_strjoin("0", s);
 	if (info->num_minus && !(info->zeropad && is_noprec))
 		s = ft_strjoin("-", s);
-	while (info->num_minus + info->prec++ < info->width)
-	{
-		if (info->zeropad && is_noprec)
-			s = ft_strjoin_dir("0", s, info->lalign);
-		else
-			s = ft_strjoin_dir(" ", s, info->lalign);
-	}
 	if (info->num_minus && (info->zeropad && is_noprec))
 		result += ft_putchar('-');
+	if (!info->lalign)
+		result += pad_width(info, is_noprec);
 	result += ft_putstr(s);
+	if (info->lalign)
+		result += pad_width(info, is_noprec);
 	return (result);
 }
 

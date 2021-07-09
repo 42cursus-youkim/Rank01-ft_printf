@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 15:19:16 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 15:29:52 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,10 @@ int	print_number(long long n, t_info *info)
 		info->num_minus = true;
 	if (n == 0 && !info->prec)
 		s = ft_strdup("");
+	else if (info->type == 'p')
+		s = ft_strjoin("0x", ft_itoa_base(n, get_baseset(info->type)));
 	else
 		s = ft_itoa_base(n, get_baseset(info->type));
-	if (info->type == 'p')
-		s = ft_strjoin("0x", s);
 	result += pad(s, info);
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/08 15:58:48 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/09 09:54:57 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,11 @@ int	print_number(long long n, t_info *info)
 	result = 0;
 	if (n < 0 && ft_strchr("di", info->type))
 		info->num_minus = true;
-	s = ft_itoa_base(n, get_baseset(info->type));
+	if (n == 0 && !info->prec)
+		s = ft_strdup("");
+	else
+		s = ft_itoa_base(n, get_baseset(info->type));
 	s = pad(s, info);
-	// s = pad_width(pad_prec(s, info), info);
 	result += ft_putstr(s);
 	return (result);
 }
-/*
-** //TODO: remove num_base from info struct; needless
-** 	if (n < 0 && ft_strchr("di", info->type))
-*/

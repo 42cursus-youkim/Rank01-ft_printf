@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 17:16:43 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/30 14:28:36 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	print_string(char *s, t_info *info)
 	result = 0;
 	if (!s)
 		s = "(null)";
-	if (info->prec == NOPREC || info->prec > (int)ft_strlen(s))
+	if (info->prec == NOPREC || (size_t)info->prec > ft_strlen(s))
 		info->prec = ft_strlen(s);
 	if (info->lalign)
 		result += write(1, s, info->prec) + pad(info->prec, info);

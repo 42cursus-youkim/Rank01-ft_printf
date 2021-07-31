@@ -12,10 +12,9 @@
 
 # Testers
 *main.c
-pft
-PFT_2019
-printfTester
-printf-tester
-printf_lover_v2
-printf-unit-test
+do.sh
+pft_2019
 42TESTERS-PRINTF
+printf-unit-test
+printf_lover_v2
+printfTester

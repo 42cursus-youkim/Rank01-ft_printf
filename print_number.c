@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/09 17:02:40 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/31 19:16:05 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,11 @@ int	print_number(long long n, t_info *info)
 	if (info->type == 'p')
 		s = ft_strjoin("0x", nums);
 	else
-		s = nums;
+		s = ft_strdup(nums);
 	result += pad(s, info);
 	if (s)
 		free(s);
+	if (nums)
+		free(nums);
 	return (result);
 }

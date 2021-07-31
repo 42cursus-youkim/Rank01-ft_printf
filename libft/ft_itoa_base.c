@@ -6,13 +6,13 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/10 10:42:30 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/03 16:52:21 by youkim           ###   ########.fr       */
+/*   Updated: 2021/07/31 16:14:13 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	st_abs(long long n)
+static long long	st_abs(long long n)
 {
 	if (n >= 0)
 		return (n);

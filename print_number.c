@@ -6,7 +6,7 @@
 /*   By: youkim <youkim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/29 15:01:29 by youkim            #+#    #+#             */
-/*   Updated: 2021/07/31 19:16:05 by youkim           ###   ########.fr       */
+/*   Updated: 2021/08/01 16:21:03 by youkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static	int	pad_width(t_info *info, int temprec)
 
 	i = info->prec;
 	result = 0;
-
 	while (info->num_minus + i++ < info->width)
 	{
 		if (info->zeropad && !info->lalign && temprec < 0)
@@ -36,6 +35,7 @@ static	int	pad(char *s, t_info *info)
 	int		start;
 	int		result;
 	int		temprec;
+
 	result = 0;
 	start = ft_strlen(s);
 	temprec = info->prec;

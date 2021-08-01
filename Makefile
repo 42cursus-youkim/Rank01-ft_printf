@@ -6,7 +6,7 @@
 #    By: youkim <youkim@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/06 16:31:20 by youkim            #+#    #+#              #
-#    Updated: 2021/07/09 17:15:47 by youkim           ###   ########.fr        #
+#    Updated: 2021/08/01 15:31:50 by youkim           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ $(NAME): $(OBJ)
 # $^ -> curr. dependancy. list
 
 all: $(NAME)
+
+bonus: all
 
 clean:
 	make clean -C $(LIBFT)

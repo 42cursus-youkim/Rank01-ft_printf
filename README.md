@@ -2,7 +2,7 @@
 
 ## `stdio` my beloved
 
-![](https://badge42.herokuapp.com/api/project/youkim/ft_printf)
+![](https://badge42.vercel.app/api/v2/cl1pqrsvk005409ml9e9fk7av/project/2172193)
 
 > This project is pretty straight forward. You will recode printf. Fortunetaly
 you will be able to reuse it in future projects as a legit function of your libft. You will
